@@ -1,19 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import blogData from '../data/data';
+import BlogCard from './BlogCard';
+import { Box, Grid, makeStyles } from '@material-ui/core';
 
-const Home = ({ initialText, changeText }) => (
-  <div>
-    <p>{initialText}</p>
-    <button onClick={changeText}>change text!</button>
-  </div>
-);
+const Home = () => {
+  return (
+  
+      <Grid item xs>
+        {blogData.map(post => <BlogCard key={post.id} {...post} />)}
+      </Grid>
+    
+  );
+}
 
-const mapStateToProps = ({ initialText }) => ({
-  initialText,
+const mapStateToProps = ({}) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  changeText: () => dispatch({ type: 'CHANGE_TEXT' }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

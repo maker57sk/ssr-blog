@@ -6,11 +6,11 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from './reducers';
 import { StaticRouter } from 'react-router';
-
 import Html from './components/Html';
 import App from './components/App';
 
 const app = express();
+
 
 app.use(express.static(path.join(__dirname)));
 
@@ -39,4 +39,4 @@ app.get('*', async (req, res) => {
   res.send(`<!doctype html>${html}`);
 });
 
-app.listen(3000, () => console.log('Listening on localhost:3000'));
+app.listen(3001, () => console.log('Listening on localhost:3001'));
